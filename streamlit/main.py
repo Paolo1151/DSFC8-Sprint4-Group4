@@ -99,7 +99,7 @@ def generate_undirected(recommendations):
 
     pos = nx.spring_layout(G)
 
-    f = plt.figure(20,20)
+    f = plt.figure(figsize=(20,20))
     nx.draw_networkx(G, pos=pos, width=edge_width, node_size=similarity, node_color=colors, font_size=10, font_color='black')
     # Adding the Objects
     f.savefig(os.getcwd() + '\\..\\fig\\undirected_temp.jpg')
@@ -109,6 +109,7 @@ def generate_directed(recommendations):
     edges=[]
     for i in range((recommendations.shape[0])-1):
         edges.append(((recommendations["Location"][i], recommendations["Location"][i+1])))
+    
 
     G = nx.DiGraph(edges)
 
@@ -155,7 +156,8 @@ def main():
     inp = st.text_input("What do you fancy today?")
     n = int(st.number_input("How many places do you want to go to?", min_value=1, value=5, step=1))
 
-    st.button('Generate', on_click=generate_recommendations, args=(inp, n))
+    if inp != '':
+        generate_recommendations(inp, n)
 
 
 if __name__ == '__main__':
