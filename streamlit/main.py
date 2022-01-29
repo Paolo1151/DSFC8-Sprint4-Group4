@@ -97,12 +97,12 @@ def generate_undirected(recommendations):
             else:
                 edge_width.append(0)
 
-    pos = nx.spring_layout()
+    pos = nx.spring_layout(G)
 
     f = plt.figure(20,20)
     nx.draw_networkx(G, pos=pos, width=edge_width, node_size=similarity, node_color=colors, font_size=10, font_color='black')
     # Adding the Objects
-    f.savefig('\\..\\fig\\undirected_temp.jpg')
+    f.savefig(os.getcwd() + '\\..\\fig\\undirected_temp.jpg')
 
 
 def generate_directed(recommendations):
