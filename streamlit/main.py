@@ -109,7 +109,6 @@ def generate_directed(recommendations):
     edges=[]
     for i in range((recommendations.shape[0])-1):
         edges.append(((recommendations["Location"][i], recommendations["Location"][i+1])))
-    edges
 
     G = nx.DiGraph(edges)
 
