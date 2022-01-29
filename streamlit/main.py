@@ -155,8 +155,7 @@ def main():
     inp = st.text_input("What do you fancy today?")
     n = int(st.number_input("How many places do you want to go to?", min_value=1, value=5, step=1))
 
-    if inp != '':
-        generate_recommendations(inp, n)
+    st.button('Generate', on_click=generate_recommendations, args=(inp, n))
 
 
 if __name__ == '__main__':
